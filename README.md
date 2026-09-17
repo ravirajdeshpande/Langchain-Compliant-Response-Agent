@@ -1,6 +1,6 @@
-# Email Humanizer - LangChain Single Agent Project
+# Complaint Resolution Agent - LangChain Single Agent Project
 
-A beginner-friendly project that teaches you how to build a **single agent** using **LangChain + OpenAI**. The agent takes a brief email idea and generates a natural, human-sounding email.
+A beginner-friendly project that teaches you how to build a **single agent** using **LangChain + OpenAI**. The agent takes a raw customer complaint and drafts a professional, empathetic resolution response.
 
 ## What You'll Learn
 
@@ -11,26 +11,26 @@ A beginner-friendly project that teaches you how to build a **single agent** usi
 - How the agent's tool-calling loop works (think -> act -> observe -> repeat)
 
 ## How It Works
-
-```
-User's email idea
-       |
-       v
-  [Agent thinks: "I need to draft an email first"]
-       |
-       v
-  [Tool: draft_email] --> creates a formal, structured email
-       |
-       v
-  [Agent thinks: "Now I should humanize this draft"]
-       |
-       v
-  [Tool: humanize_email] --> rewrites it to sound natural and warm
-       |
-       v
-  Final humanized email returned to user
-```
-
+Customer complaint + service context
+|
+v
+[Agent thinks: "I need to analyze this complaint first"]
+|
+v
+[Tool: analyze_customer_complaint] --> identifies issue, sentiment,
+requested outcome, urgency,
+missing info
+|
+v
+[Agent thinks: "Now I should draft the resolution response"]
+|
+v
+[Tool: draft_resolution_response] --> acknowledges the issue, explains
+next steps, avoids unsupported
+promises
+|
+v
+Final resolution response returned to user
 ## Prerequisites
 
 - Python 3.10 or higher
@@ -41,7 +41,7 @@ User's email idea
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/NisargKadam/Langchain_sample_project.git
+git 
 cd Langchain_sample_project
 ```
 
@@ -54,13 +54,13 @@ python -m venv .venv
 Activate it:
 
 - **Windows (PowerShell):**
-  ```powershell
+```powershell
   .venv\Scripts\Activate
-  ```
+```
 - **macOS / Linux:**
-  ```bash
+```bash
   source .venv/bin/activate
-  ```
+```
 
 ### 3. Install dependencies
 
@@ -77,66 +77,58 @@ cp .env.example .env
 ```
 
 Open `.env` and replace the placeholder with your actual OpenAI API key:
-
-```
 OPENAI_API_KEY=sk-your-actual-key-here
-```
+
 
 ## Run
 
 ```bash
-python email_humanizer_agent.py
+python complaint_resolution_agent.py
 ```
 
 You'll see an interactive prompt:
 
-```
-EMAIL HUMANIZER AGENT (LangChain + OpenAI)
-Describe the email you want to write. Type 'quit' to exit.
+COMPLAINT RESOLUTION AGENT (LangChain + OpenAI)
+Describe the customer complaint and service context. Type 'quit' to exit.
 
-Your email idea:
-```
+Customer complaint:
 
-Type your email idea (e.g., `thank my team for finishing the project on time`) and the agent will generate a humanized email. You'll also see a log line for each tool the agent calls.
+Type the complaint (e.g., `My order arrived 2 weeks late and the item was damaged, I want a refund`) and the agent will analyze it and draft a resolution response. You'll also see a log line for each tool the agent calls.
 
 ## Example
 
 **Input:**
-```
-thank my team for finishing the project on time
-```
+My order #4521 arrived 2 weeks late and the item was damaged. I'm really
+frustrated and just want a full refund, not a replacement.
 
 **Output:**
-```
-Subject: Huge Thanks for Your Amazing Work on the Project!
+Subject: Re: Order #4521 - Our Sincere Apologies
 
-Hey Team,
+Hi there,
 
-I hope you're all doing well! I just wanted to take a minute to say a big
-thank you for all the hard work you put into getting the project done on time.
-Your dedication and teamwork really made a difference, and I can't tell you
-how much I appreciate it.
+I'm really sorry to hear that your order arrived late and damaged — that's
+not the experience we want for you, and I completely understand your
+frustration.
 
-Each of you brought something special to the table, and I'm so proud to be
-part of such a talented group. Let's keep this momentum going and continue
-to achieve great things together!
+I've gone ahead and flagged your request for a full refund to our support
+team, and you can expect an update on the refund status within 2 business
+days. In the meantime, if you have a moment, a quick photo of the damaged
+item would help us speed things up on our end.
 
-Thanks again for everything!
+Thank you for your patience, and again, I'm sorry for the trouble this
+has caused.
 
 Best,
-[Your Name]
-```
+Customer Care Team
+
 
 ## Project Structure
+├── complaint_resolution_agent.py # Main agent code
+├── requirements.txt # Python dependencies
+├── .env.example # API key template
+├── .gitignore # Keeps secrets and venv out of git
+└── README.md # This file
 
-```
-.
-├── email_humanizer_agent.py   # Main agent code
-├── requirements.txt           # Python dependencies
-├── .env.example               # API key template
-├── .gitignore                 # Keeps secrets and venv out of git
-└── README.md                  # This file
-```
 
 ## Tech Stack
 
