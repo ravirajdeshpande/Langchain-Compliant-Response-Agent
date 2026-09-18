@@ -12,24 +12,26 @@ A beginner-friendly project that teaches you how to build a **single agent** usi
 
 ## How It Works
 Customer complaint + service context
-|
-v
+
 [Agent thinks: "I need to analyze this complaint first"]
-|
-v
+
+
+
 [Tool: analyze_customer_complaint] --> identifies issue, sentiment,
 requested outcome, urgency,
 missing info
-|
-v
+
+
 [Agent thinks: "Now I should draft the resolution response"]
-|
-v
+
+
+
 [Tool: draft_resolution_response] --> acknowledges the issue, explains
 next steps, avoids unsupported
 promises
-|
-v
+
+
+
 Final resolution response returned to user
 ## Prerequisites
 
@@ -123,11 +125,17 @@ Customer Care Team
 
 
 ## Project Structure
+
 ├── complaint_resolution_agent.py # Main agent code
+
 ├── requirements.txt # Python dependencies
+
 ├── .env.example # API key template
+
 ├── .gitignore # Keeps secrets and venv out of git
+
 └── README.md # This file
+
 
 
 ## Tech Stack
