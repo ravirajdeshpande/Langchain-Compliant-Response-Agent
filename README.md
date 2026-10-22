@@ -83,7 +83,7 @@ OPENAI_API_KEY=sk-your-actual-key-here
 ## Run
 
 ```bash
-python complaint_resolution_agent.py
+python complaint_response_agent.py
 ```
 
 You'll see an interactive prompt:
@@ -123,7 +123,7 @@ Customer Care Team
 
 
 ## Project Structure
-├── complaint_resolution_agent.py # Main agent code
+├── complaint_response_agent.py # Main agent code
 ├── requirements.txt # Python dependencies
 ├── .env.example # API key template
 ├── .gitignore # Keeps secrets and venv out of git

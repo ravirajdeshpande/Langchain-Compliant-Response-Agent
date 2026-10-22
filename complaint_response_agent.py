@@ -2,7 +2,7 @@
 complaint, then drafts a professional, empathetic resolution response.
 
 Setup: pip install -r requirements.txt, copy .env.example to .env, add your key.
-Run:   python complaint_resolution_agent.py
+Run:   python complaint_response_agent.py
 """
 
 import logging
